@@ -1,0 +1,66 @@
+function f_input($params_str, $toString = false) {
+	global $el_data;
+	$params = explode(' ', $params_str);
+	if (empty($params)) return;
+	$output = ''; // переменна€, в которую выводим данные
+	
+	// Defaults
+	$type = 'text';
+	$class = '';
+	$access = Array();
+	$hidden = Array();
+	
+	foreach ($params as $p) {
+		$t = substr($p, 0, 1);
+		switch ($t) {
+			default: 	$name = $p;							break;	// user_name (выражение без префикса) будет считатьс€ параметром name
+			case '~':	$type = substr($p, 1); 				break;	// ~hidden тип инпута. ѕо-умолчанию, text
+			case '.':	if ($p == '.') $class .= 'form-control'		// . подставл€ет 'form-control' (наиболее часто употребл€емый класс)
+						else $class .= ' ' . substr($p, 1); break;	// .my_class добавл€ет класс (можно добавл€ть сколько угодно классов)
+			case '#':	$id = substr($p, 1); 				break;	// #my_id добавл€ет id. ”казание пустого # добавит id = name
+			case '?':	$placeholder = substr($p, 1); 		break;	// ?»м€_пользовател€ добавл€ет подсказку (символы _ замен€тс€ на пробел)
+			case '=':	$value = substr($p, 1); 			break;	// =5 значение инпута. ≈сли не указано - беретс€ по дефолту из $el_data[$name]
+			
+			/* 	ѕрава доступа к полю
+				@superadmin - роль юзера, которому разрешено редактирование пол€
+				/user - роль юзера, которому поле вообще не выводитс€. ѕеречисление ролей может быть любой длины: 
+				
+				@superadmin @admin /user - 	суперадмин и админ вид€т и редактируют, 
+											manager (не указан) видит, но редактировать не может,
+											юзеру же поле вообще скрыто												
+			*/
+			case '@':	$access[] = substr($p, 1);			break;
+			case '/':	$hidden[] = substr($p, 1);			break;
+			
+			/* 
+				Addons. ≈сли используютс€ favicon's, синтаксис: >fa-user или <fa-clock
+				¬ случае вставок произвольного текста в аддон, к примеру, +7 дл€ ввода номера телефона, синтаксис <+7 
+			*/
+			case '<':	if (substr($p, 1, 3) == 'fa-') 
+						$addon_left = fa ( substr($p, 3), true );
+						else $addon_left = substr($p, 1);
+			case '>':	if (substr($p, 1, 3) == 'fa-')
+						$addon_right = fa ( substr($p, 3), true );
+						else $addon_right = substr($p, 1);
+		}
+	}
+	if (array_search($user_info['user_role'], $hidden[])) return; // ѕоле скрыто дл€ текущей роли пользовател€
+	if (count($access) > 0 && array_search($user_info['user_role'], $access[]) == 'false') $disabled = ' disabled';
+	if (!empty($class)) $class = substr($class, 1); // убираем пробел в начале строки с классами
+	if (empty($id)) $id = $name;
+	if (empty($value) && !empty($name)) $value = $el_data[$name];
+	$placeholder = str_replace('_', ' ', $placeholder);
+	
+	switch ($type) {
+		case 'text': 
+			if (!empty($addon_left) || !empty($addon_right)) $output .= '<div class="input-group">';
+				if (!empty($addon_left)) $output .= '<span class="input-group-addon">' . $addon_left . '</span>';
+				$output .= "<input type=\"$type\" name=\"$name\" id=\"$id\" class=\"$class\" placeholder=\"$placeholder\" value=\"$value\"$disabled>";
+				if (!empty($addon_right)) $output .= '<span class="input-group-addon">' . $addon_right . '</span>';
+			if (!empty($addon_left) || !empty($addon_right)) $output .= '</div>';
+			break;
+	}
+	
+	if ($toString) return $output;
+	else echo $output;
+}
