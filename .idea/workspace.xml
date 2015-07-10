@@ -25,20 +25,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="main_script.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main_script.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/js/main_script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3322" max-vertical-offset="5478">
-              <caret line="151" column="74" selection-start-line="151" selection-start-column="65" selection-end-line="151" selection-end-column="74" />
+            <state vertical-scroll-proportion="0.59782606" vertical-offset="3322" max-vertical-offset="5566">
+              <caret line="176" column="25" selection-start-line="176" selection-start-column="25" selection-end-line="176" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="modal_review.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="modal_review.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/modals/modal_review.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3464567" vertical-offset="0" max-vertical-offset="4422">
+            <state vertical-scroll-proportion="-3.548387" vertical-offset="198" max-vertical-offset="4422">
               <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
               <folding>
                 <element signature="e#1380#1915#0#PHP" expanded="true" />
@@ -411,7 +411,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="1" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -494,27 +494,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://C:/04 Работа/сайтостроение/NSK-BASE/nskbase верстка андрей4 (собственники)/owners.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="20085" max-vertical-offset="40084">
-          <caret line="1324" column="22" selection-start-line="928" selection-start-column="16" selection-end-line="1324" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/modals/modal_object_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="9108">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/php/content.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1782" max-vertical-offset="2992">
-          <caret line="81" column="20" selection-start-line="81" selection-start-column="20" selection-end-line="81" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/modals/modal_client_edit.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1584" max-vertical-offset="6182">
@@ -676,13 +655,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/objects_last.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.22272216" vertical-offset="198" max-vertical-offset="2816">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/metrics_head.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-13.354838" vertical-offset="290" max-vertical-offset="1320">
@@ -750,6 +722,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.24746907" vertical-offset="6050" max-vertical-offset="14410">
           <caret line="275" column="197" selection-start-line="275" selection-start-column="197" selection-end-line="275" selection-end-column="197" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -817,14 +790,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/js/main_script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3168" max-vertical-offset="5566">
-          <caret line="151" column="74" selection-start-line="151" selection-start-column="65" selection-end-line="151" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/ajax/save_modal_edit.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="8778" max-vertical-offset="9504">
@@ -871,15 +836,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/js/www_to_pdf.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="920">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pages/modals/modal_review.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3464567" vertical-offset="0" max-vertical-offset="4422">
+        <state vertical-scroll-proportion="-3.548387" vertical-offset="198" max-vertical-offset="4422">
           <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
           <folding>
             <element signature="e#1380#1915#0#PHP" expanded="true" />
             <element signature="e#1977#7881#0#PHP" expanded="true" />
             <marker date="1436541408223" expanded="true" signature="346:511" placeholder="SELECT * FRO..lim_reviews..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/js/main_script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.59782606" vertical-offset="3322" max-vertical-offset="5566">
+          <caret line="176" column="25" selection-start-line="176" selection-start-column="25" selection-end-line="176" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
