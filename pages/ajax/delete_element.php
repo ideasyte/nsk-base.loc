@@ -23,6 +23,46 @@ else {
 				else $data_out['result_txt'] = "Во время сохранения данных произошла ошибка!";
 			}
 			break;
+        
+        case 'objects':
+            if (!empty($el_id)) $object = db_row("SELECT * FROM `lim_objects` WHERE `obj_id`='$el_id'");
+            if (!empty($el_id) && empty($object['obj_id']))	$data_out['result_txt'] = "Ошибка удаления: объект с id#$el_id не найден!";
+            else if (!empty($el_id) && $enter_user != $object['obj_user'] && $user_info['user_role'] != 'superadmin' && $user_info['user_role'] != 'admin') $data_out['result_txt'] = "Ваши текущие права доступа не позволяют удалять объекты, созданные другими пользователями!";
+            else {
+                if ( db_request("DELETE FROM `lim_objects` WHERE `obj_id`='$el_id' LIMIT 1") ) 	{
+                    $data_out['result'] = 'ok';
+                    $data_out['result_txt'] = 'Объект успешно удален';
+                }
+                else $data_out['result_txt'] = "Во время сохранения данных произошла ошибка!";
+            }
+            break;
+
+        case 'reviews':
+            if (!empty($el_id)) $review = db_row("SELECT * FROM `lim_reviews` WHERE `rw_id`='$el_id'");
+            if (!empty($el_id) && empty($review['rw_id']))	$data_out['result_txt'] = "Ошибка удаления: просмотр с id#$el_id не найден!";
+            else if (!empty($el_id) && $enter_user != $review['rw_user'] && $user_info['user_role'] != 'superadmin' && $user_info['user_role'] != 'admin') $data_out['result_txt'] = "Ваши текущие права доступа не позволяют удалять просмотры, созданные другими пользователями!";
+            else {
+                if ( db_request("DELETE FROM `lim_reviews` WHERE `rw_id`='$el_id' LIMIT 1") ) 	{
+                    $data_out['result'] = 'ok';
+                    $data_out['result_txt'] = 'Просмотр успешно удален';
+                }
+                else $data_out['result_txt'] = "Во время сохранения данных произошла ошибка!";
+            }
+            break;
+
+        case 'comments':
+            if (!empty($el_id)) $comment = db_row("SELECT * FROM `lim_comments` WHERE `cm_id`='$el_id'");
+            if (!empty($el_id) && empty($comment['cm_id']))	$data_out['result_txt'] = "Ошибка удаления: комментарий с id#$el_id не найден!";
+            else if (!empty($el_id) && $enter_user != $comment['cm_user'] && $user_info['user_role'] != 'superadmin' && $user_info['user_role'] != 'admin') $data_out['result_txt'] = "Ваши текущие права доступа не позволяют удалять комментарии, созданные другими пользователями!";
+            else {
+                if ( db_request("DELETE FROM `lim_comments` WHERE `cm_id`='$el_id' LIMIT 1") ) 	{
+                    $data_out['result'] = 'ok';
+                    $data_out['result_txt'] = 'Комментарий успешно удален';
+                }
+                else $data_out['result_txt'] = "Во время сохранения данных произошла ошибка!";
+            }
+            break;        
+        
 	}
 }
 if ($data_out['result'] != 'ok') {

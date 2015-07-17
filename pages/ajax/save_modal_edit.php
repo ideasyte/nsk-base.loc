@@ -415,6 +415,45 @@ else {
             }
 
             break;
+
+        /*Сохранение данных комментариев*/
+        case 'comments':
+            $obj_id = intval($_POST['obj_id']);
+            if (empty($obj_id)) $data_out['result_txt'] = "Ошибка сохранения данных: id объекта неизвестен!";
+            else {
+                $object = db_row("SELECT * FROM `lim_objects` WHERE `obj_id`='$obj_id'");
+                if (empty($object['obj_id']))	$data_out['result_txt'] = "Ошибка сохранения данных: объект с id#$obj_id не найден!";
+                else {
+                    if (!empty($el_id)) $comment = db_row("SELECT * FROM `lim_comments` WHERE `cm_id`='$el_id'");
+                    if (!empty($el_id) && empty($comment['cm_id']))	$data_out['result_txt'] = "Ошибка сохранения данных: комментарий с id#$el_id не найден!";
+                    else if (!empty($el_id) && $enter_user != $comment['cm_user'] && $user_info['user_role'] != 'superadmin' && $user_info['user_role'] != 'admin') $data_out['result_txt'] = "Ваши текущие права доступа не позволяют редактировать комментарии, созданные другими пользователями!";
+                    else {
+                        $cm_value = $_POST['cm_value'];
+                        if ( get_magic_quotes_gpc()) {
+                            $cm_value=addslashes(stripslashes(trim($cm_value)));
+                        }
+                        if (empty($comment['cm_user'])) $rq_author = ", `cm_author`='$enter_user'";
+                        else $rq_author = "";
+
+                        $rq_data = "`cm_client`='11',
+							`cm_object`='$obj_id',
+							`cm_value`='$cm_value'
+							$rq_author";
+
+                        if (empty($el_id)) {
+                            $ret = db_insert("	INSERT INTO `lim_comments` SET $rq_data");
+                            $data_out['result_txt'] = "Новый комментарий успешно сохранен в базе";
+                        } else {
+                            $ret = db_request("	UPDATE `lim_comments` SET $rq_data WHERE `cm_id`='$el_id'");
+                            $data_out['result_txt'] = "Комментарий успешно отредактирован";
+                        }
+                        if ($ret) 	$data_out['result'] = 'ok';
+                        else		$data_out['result_txt'] = "Во время сохранения данных произошла ошибка!";
+                    }
+                }
+            }
+
+            break;        
 	}
 }
 if ($data_out['result'] != 'ok') {

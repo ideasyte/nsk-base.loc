@@ -29,7 +29,7 @@
                             <a href="#" class="text-success" onclick="open_modal(<?=$review['rw_id']?>, 'reviews', <?=$el_data['obj_id']?>);">
                                 <i class="fa fa-fw fa-pencil"></i>
                             </a><br/>
-                            <a href="#" class="text-danger">
+                            <a href="#" class="text-danger" onclick="delete_element(<?=$review['rw_id']?>, 'reviews');">
                                 <i class="fa fa-fw fa-trash"></i>
                             </a>
                         </td>
